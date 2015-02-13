@@ -24,3 +24,14 @@ body {
     letter-spacing: -1px;
   }
 }
+
+.incomplete{
+  background-color:lightgreen;
+  list-style: none;
+
+}
+
+.complete{
+  background-color:lightblue;
+  list-style: none;
+}
