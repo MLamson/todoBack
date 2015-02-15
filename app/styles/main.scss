@@ -23,6 +23,15 @@ body {
     line-height: 1;
     letter-spacing: -1px;
   }
+
+}
+
+#addItemHere li{
+  padding:5px 5px 5px 10px;
+  margin: 5px 0px
+}
+#addItemHere li:hover{
+  cursor: pointer;
 }
 
 .incomplete{
@@ -32,6 +41,7 @@ body {
 }
 
 .complete{
+  text-decoration: line-through;
   background-color:lightblue;
   list-style: none;
 }

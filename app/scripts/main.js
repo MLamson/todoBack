@@ -17,10 +17,14 @@ var Item = Backbone.Model.extend({
 		},
 
 		toggleStatus:  function(){
-    if (this.status === 'incomplete') {
-        this.status = 'complete';
+			//console.log('function called');
+    if (this.get('status') === 'incomplete') {
+    //	console.log('inside toggle if statement');
+        this.set({status: 'complete'});
+        this.save({status: 'complete'});
       } else {
-        this.status = 'incomplete';
+        this.set({status: 'incomplete'});
+        this.save({status: 'incomplete'});
       }
 },//end toggle
 
@@ -82,20 +86,20 @@ $('#itemForm').on('submit', function(e){
     e.preventDefault();
 
     var thisItem = e.target;
-    var thisItemID = Number(thisItem.id);
-    console.log(thisItem);
-    console.log(thisItem.id);
+    //var thisItemID = Number(thisItem.id);
+    // console.log(thisItem);
+    // console.log(thisItem.id);
 
-    console.log('click toggle 1');
+    // console.log('click toggle 1');
     var thisItemInstance = itemCol.findWhere({ _id: thisItem.id });
-    console.log('click toggle 2');
-    console.log(thisItemInstance);
-
+    // console.log('click toggle 2');
+    // console.log(thisItemInstance);
+		
+		///////////////////////////////////////////////
+		////call fuction to toggle complete status
     thisItemInstance.toggleStatus();
-
-    $(thisItem).removeClass().addClass(thisItemInstance.status);
-
-
+    $(thisItem).removeClass().addClass(thisItemInstance.get('status'));
+    ///////////////////////////////////////////
   });
 
 ///////////////////////////////////
@@ -103,10 +107,10 @@ $('#itemForm').on('submit', function(e){
 //_.template code
 var todoTemplate = $('#todoTemp').html();
 
-console.log(todoTemplate);
+//console.log(todoTemplate);
 var todoTemplateFunc = _.template(todoTemplate);
-console.log(todoTemplateFunc);
-console.dir(todoTemplateFunc);
+// console.log(todoTemplateFunc);
+// console.dir(todoTemplateFunc);
 
  addItem = function (item) {
       	// console.log(item);
