@@ -16,18 +16,26 @@
   <body>
 
     <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>Bourbon & Neat</li>
-        <li>UnderscoreJS</li>
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
+
+        <form id="itemForm">
+            <H1>Kids To Do List</H1>
+           <input id="text" placeholder="Buy Milk, etc" value="" />
+        </form>
+
+        <ul id="addItemHere">
+            <img src="images/trash.jpeg"/>
+        </ul>
+
+
     </div>
+
+    <script type="text/template" id="todoTemp">
+
+      <li id="<%=_id%>" class="<%= status %>"><%= name %></li>
+      
+
+    </script>
+
 
     <script src="scripts/vendor.js"></script>
 
