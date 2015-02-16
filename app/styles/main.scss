@@ -25,10 +25,21 @@ body {
   }
 
 }
+#addItemHere{
+  width: 65%;
 
+}
 #addItemHere li{
-  padding:5px 5px 5px 10px;
+  width:75%;
+  float:left;
+  padding:5px 15px 5px 10px;
   margin: 5px 0px
+}
+#addItemHere img{
+  float:left;
+  margin-top: 15px;
+  width: 25px;
+  height: 25px;
 }
 #addItemHere li:hover{
   cursor: pointer;

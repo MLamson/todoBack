@@ -1,7 +1,7 @@
 console.log('The Iron Yard Rocks');
 
 var Item = Backbone.Model.extend({
-
+//var deleteImg = 
 		initialize: function(){
 
 			// console.log('New Item created');
@@ -86,12 +86,17 @@ $('#itemForm').on('submit', function(e){
     e.preventDefault();
 
     var thisItem = e.target;
+    //console.log(thisItem);
     //var thisItemID = Number(thisItem.id);
     // console.log(thisItem);
     // console.log(thisItem.id);
 
     // console.log('click toggle 1');
     var thisItemInstance = itemCol.findWhere({ _id: thisItem.id });
+    // console.log(thisItemInstance);
+    // thisItemInstance.destroy();
+    //itemCol.save();
+    //itemCol.remove(thisItemInstance);
     // console.log('click toggle 2');
     // console.log(thisItemInstance);
 		
@@ -101,6 +106,34 @@ $('#itemForm').on('submit', function(e){
     $(thisItem).removeClass().addClass(thisItemInstance.get('status'));
     ///////////////////////////////////////////
   });
+
+  ///////////////////////////////////////////
+  ////////////////////////////////////////////
+  ////click on event for delting a list item
+ $('#addItemHere').on('click' ,'img',function (e) {
+   e.preventDefault();
+
+     console.log('image click');
+
+     var itemsInstance = itemCol.where({ status: 'complete' });
+ //    var thisItem2 = e.target;
+  console.log(itemsInstance);
+
+  itemCol.remove(Item, itemsInstance); 
+ //    //console.log(thisItem.class);
+ //    var thisItemInstance2 = itemCol.findWhere({ _id: thisItem2.id});
+ // 			//itemCol.remove(thisItem);
+ //   	itemCol.remove(thisItemInstance2);
+ //   	console.log(thisItemInstance2);
+ });
+
+		
+		///////////////////////////////////////////////
+		////call fuction to toggle complete status
+  /////  thisItemInstance.toggleStatus();
+   ///// $(thisItem).removeClass().addClass(thisItemInstance.get('status'));
+    ///////////////////////////////////////////
+ 
 
 ///////////////////////////////////
 ///////////////////////////////////
@@ -113,32 +146,19 @@ var todoTemplateFunc = _.template(todoTemplate);
 // console.dir(todoTemplateFunc);
 
  addItem = function (item) {
-      	// console.log(item);
-      	// console.log("in add item func†ion");
-   // todoArray.push(item);
-
-   //.attributes needed because of backbone collections
+   
     $('#addItemHere').prepend(todoTemplateFunc(item.attributes));
   };
-//////////////////////////////////////
-////////////////////////////////////////////
-// var allItems = new ItemCol();
-
-// var a = new Item ({name: 'Milk'});
-// var b = new Item ({name: 'Eggs'});
-// var c = new Item ({name: 'Bread'});
 
 
-// taskname = document.getElementById('text').value;
-    
-//     // Create a new Todo
-//     taskinstance = new Todo(taskname);
+/////////////////////////////////////////
+////////////////////////////////////////
+////test remove from list.
 
-//     // Run the function addTodo
-//     addTodo(taskinstance);
-
-
-
+removeItem = function (item){
+	// var thisItemInstance = itemCol.findWhere({ _id: thisItem.id });
+	itemCol.remove(item, [item]);
+};
 
 
 
